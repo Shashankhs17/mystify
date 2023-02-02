@@ -530,7 +530,7 @@ Schedule
     color: #070D59;
     font-size: 2rem;
     font-weight: bold;
-    line-height: 2;
+    line-height: 1.4;
 }
 
 .timeline-box p {
@@ -558,7 +558,7 @@ Schedule
     }
 
     .timeline-content {
-        width: 90%;
+        width: 70%;
     }
 }
 
