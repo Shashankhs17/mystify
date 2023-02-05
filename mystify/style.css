@@ -59,6 +59,8 @@ body {
 
     background: rgb(0, 0, 50);
     background: linear-gradient(180deg, rgb(0, 0, 25) 0%, rgb(0, 0, 47) 100%, rgb(0, 0, 58) 100%);
+
+    position: relative;
 }
 
 a {
@@ -312,7 +314,123 @@ nav .bar {
 
 .intro-video {
     margin: 5rem auto 2rem;
+    width: 40%;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.title > * {
+    margin: 1rem auto;
+}
+
+.title-text {
+    color: #D6E4E5;
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+.title-image {
+    margin: 3rem auto 1rem;
     width: 50%;
+}
+
+.title-description {
+    width: 50%;
+}
+
+.title p {
+    backdrop-filter: blur(6px);
+    background-color: #4f4f4f2c;
+    border-radius: 0.3rem;
+    color: #D6E4E5;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 2rem;
+    transition: all 1s ease-in-out;
+}
+
+.registration-btn {
+    backdrop-filter: blur(3px);
+    background-color: #eaeaea1f;
+    border-radius: 3rem;
+    box-shadow: 0 0 5px 0px #ffffff;
+    color: #D6E4E5;
+    font-size: 1.2rem;
+    font-family: 'VT323', monospace;
+    padding: 1rem 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.registration-btn:hover {
+    backdrop-filter: blur(0px);
+    box-shadow: 0 0 15px 1px #ffffff;
+    transform: scale(105%);
+}
+
+.arrow-down {
+    color: #D6E4E5;
+    position: relative;
+    top: 5%;
+}
+
+.arrow-down:hover {
+    color: #ec255a;
+    transform: scale(105%);
+}
+
+@media only screen and (max-width: 991.5px) {
+    .title-text {
+        font-size: 2.3rem;
+    }
+
+    .title p {
+        font-size: 1rem;
+    }
+
+    .title-image {
+        width: 90%;
+    }
+
+    .title-description {
+        width: 80%;
+    }
+
+    .registration-btn {
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .title-text {
+        font-size: 1.5rem;
+    }
+
+    .title p {
+        font-size: 0.9rem;
+    }
+
+    .title-image {
+        width: 100%;
+    }
+
+    .title-description {
+        width: 90%;
+    }
+
+    .registration-btn {
+        font-size: 0.9rem;
+    }
 }
 
 /* ------------------
@@ -351,10 +469,10 @@ GENERAL CLASSES
 /* ------------------
 Lottie Files
 ------------------ */
-main {
+/* main {
     overflow: hidden;
     position: relative;
-}
+} */
 
 lottie-player {
     height: 400px;
