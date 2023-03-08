@@ -144,7 +144,7 @@ $(document).ready(function () {
                 for (let j = 0; j < 100; j+=20) {
                     lottieHtml += 
                     `
-                    <lottie-player src="/mystify/assets/animation/background-animation.json" background="transparent" speed="0.1" mode="bounce" loop autoplay style="top: ${i}%; left: ${j}%"></lottie-player>
+                    <lottie-player src="mystify/assets/animation/background-animation.json" background="transparent" speed="0.1" mode="bounce" loop autoplay style="top: ${i}%; left: ${j}%"></lottie-player>
                     `;
 
                 }
