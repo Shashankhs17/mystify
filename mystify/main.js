@@ -16,10 +16,16 @@ $(document).ready(function () {
             nav.removeClass('side-nav');
             nav.removeClass('top-nav');
             nav.addClass('side-nav');
+            $('.navbar-logo').css({'position': 'fixed', 'opacity': '0.7'});
+            $('.top-logo').css({'display': 'none'});
+            $('.side-logo').css({'display': 'block'});
         } else {
             nav.removeClass('side-nav');
             nav.removeClass('top-nav');
             nav.addClass('top-nav');
+            $('.navbar-logo').css({'position': 'absolute', 'opacity': '1'});
+            $('.side-logo').css({'display': 'none'});
+            $('.top-logo').css({'display': 'block'});
         }
     }
     toggleNav();
@@ -36,26 +42,6 @@ $(document).ready(function () {
         nav.toggleClass('hidden', scrollTop > prev);
         prev = scrollTop;
     }); 
-
-    // $window.on('scroll', function() {
-    //     if ($window.scrollTop() > 100 && nav.hasClass('hidden')) {
-    //         nav.removeClass('hidden');
-
-    //         if ($window.scrollTop() > 150) {
-    //             setTimeout(function() {
-    //                 nav.addClass('hidden');
-    //                 console.log('1', $window.scrollTop());
-    //             }, 4000);
-    //         }
-    //     } else {
-    //         if ($window.scrollTop() > 150) {
-    //             setTimeout(function() {
-    //                 nav.addClass('hidden');
-    //                 console.log('2', $window.scrollTop());
-    //             }, 4000);
-    //         }
-    //     }
-    // });
 
     // Changing active tab
     function changeActiveTab (event) {
@@ -147,76 +133,24 @@ $(document).ready(function () {
         }
     });
 
-        $.fn.countTo = function(options) {
-            // merge the default plugin settings with the custom options
-            options = $.extend({}, $.fn.countTo.defaults, options || {});
-            
-            // how many times to update the value, and how much to increment the value on each update
-            var loops = Math.ceil(options.speed / options.refreshInterval),
-                increment = (options.to - options.from) / loops;
-            
-            return $(this).each(function() {
-                var _this = this,
-                    loopCount = 0,
-                    value = options.from,
-                    interval = setInterval(updateTimer, options.refreshInterval);
-                
-                function updateTimer() {
-                    value += increment;
-                    loopCount++;
-                    $(_this).html(value.toFixed(options.decimals));
-                    
-                    if (typeof(options.onUpdate) == 'function') {
-                        options.onUpdate.call(_this, value);
-                    }
-                    
-                    if (loopCount >= loops) {
-                        clearInterval(interval);
-                        value = options.to;
-                        
-                        if (typeof(options.onComplete) == 'function') {
-                            options.onComplete.call(_this, value);
-                        }
-                    }
-                }
-            });
-        };
-        
-        $.fn.countTo.defaults = {
-            from: 0,  // the number the element should start at
-            to: 100,  // the number the element should end at
-            speed: 1000,  // how long it should take to count between the target numbers
-            refreshInterval: 100,  // how often the element should be updated
-            decimals: 0,  // the number of decimal places to show
-            onUpdate: null,  // callback method for every time the element is updated,
-            onComplete: null,  // callback method for when the element finishes updating
-        };
-
-    // Prizes counter
-    // $('.counter').countTo({
-    //     from: 0,
-    //     to: 1500,
-    //     speed: 1000,
-    //     refreshInterval: 50,
-    //     onComplete: function(value) {
-    //         console.debug(this);
-    //     }
-    // });
-
     // Randomly Scatter lottie files in the background
     function RandomlyScatterAnimation (width) {
         if (window.matchMedia(`(min-width : ${width})`).matches) {
             let lottieHtml = $('.lottie-animation').html();
-            for (let i = 0; i < 100; i+=6) {
-                for (let j = 0; j < 100; j+=25) {
+            let height = $('body').outerHeight();
+            console.log(height);
+            let increment = Math.floor(100/(height/($('body').outerWidth()/5)));
+            for (let i = 0; i < 95; i+=increment) {
+                for (let j = 0; j < 100; j+=20) {
                     lottieHtml += 
                     `
-                    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_6ifezefg.json" background="transparent" speed="0.1" mode="bounce" loop autoplay style="top: ${i}%; left: ${j}%"></lottie-player>
+                    <lottie-player src="/mystify/assets/animation/background-animation.json" background="transparent" speed="0.1" mode="bounce" loop autoplay style="top: ${i}%; left: ${j}%"></lottie-player>
                     `;
+
                 }
             }
             $('.lottie-animation').html(lottieHtml);
         }
     }
-    RandomlyScatterAnimation('800px');
+    RandomlyScatterAnimation('60px');
 });

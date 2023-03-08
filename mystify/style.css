@@ -1,6 +1,7 @@
 /* TODO: 
 1. Remove Unwanted Comments
-2. Change Fonts  */
+2. Change Fonts  
+3. remove unused styles */
 
 * {
     box-sizing: border-box;
@@ -22,45 +23,33 @@ body {
 /* Google Fonts  */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Montserrat:wght@100&family=Roboto+Mono&family=VT323&display=swap');
 
+
+/* ------------------
+Lottie Files
+------------------ */
+
+lottie-player {
+    height: 300px;
+    opacity: 0.1;
+    position: absolute;
+    width: 20%;
+    z-index: -2;
+}
+
+lottie-animation {
+    height: 100%;
+}
+
 /* ---------------------
 General styles
 --------------------- */
 
 body {
-    /* background: rgb(88,0,255); */
-    /* background: linear-gradient(234deg, rgba(88,0,255,1) 0%, rgba(0,150,255,1) 40%, rgba(0,215,255,1) 79%, rgba(114,255,255,1) 99%); */
-
-    /* background: rgb(7,13,89); */
-    /* background: linear-gradient(180deg, rgba(7,13,89,1) 0%, rgba(31,60,136,1) 39%, rgba(88,147,212,1) 75%, rgba(206,221,239,1) 100%); */
-
-    /* background: rgb(6,40,61); */
-    /* background: linear-gradient(180deg, rgba(6,40,61,1) 0%, rgba(19,99,223,1) 50%, rgba(71,181,255,1) 75%, rgba(223,246,255,1) 100%); */
-
-    /* background-color: #111927; */
-    /* background-image: radial-gradient(at 47% 33%,#1c2d92 0,transparent 59%),radial-gradient(at 82% 65%,#111927 0,transparent 55%); */
-
-    /* background: rgb(0,152,255); */
-    /* background: radial-gradient(circle, rgba(0,152,255,1) 0%, rgba(19,99,223,1) 0%, rgba(6,40,61,1) 100%); */
-
-    /* background: rgb(6,40,61); */
-    /* background: linear-gradient(180deg, rgba(6,40,61,1) 0%, rgba(37,109,133,1) 46%, rgba(71,181,255,1) 83%, rgba(223,246,255,1) 100%); */
-
-    /* background: rgb(20,0,132); */
-    /* background: linear-gradient(180deg, rgba(20,0,132,1) 0%, rgba(37,74,133,1) 23%, rgba(71,115,255,1) 43%, rgba(155,167,255,1) 100%); */
-
-    /* background: rgb(0,3,62); */
-    /* background: linear-gradient(180deg, rgba(0,3,62,1) 0%, rgba(0,8,119,1) 50%, rgba(0,15,140,1) 80%, rgba(0,33,173,1) 100%); */
-
-    /* background: rgb(0,2,37); */
-    /* background: linear-gradient(180deg, rgba(0,2,37,1) 0%, rgba(0,7,98,1) 50%, rgba(0,12,108,1) 80%, rgba(0,28,149,1) 100%); */
-
-    /* background: rgb(9,9,121); */
-    /* background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%, rgba(206,221,239,1) 100%); */
-
     background: rgb(0, 0, 50);
     background: linear-gradient(180deg, rgb(0, 0, 25) 0%, rgb(0, 0, 47) 100%, rgb(0, 0, 58) 100%);
 
     position: relative;
+    overflow-x: hidden;
 }
 
 a {
@@ -158,12 +147,11 @@ Header
 --------------------- */
 
 header {
-    /* background-image: url('/mystify/assets/img/header-bg.png'); */
     background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: auto;
 }
 
 /* ------------------
@@ -186,6 +174,15 @@ nav .bar {
     margin: 0.3rem;
     transition: all 0.5s;
     width: 1.6rem;
+}
+
+.navbar-logo {
+    display: none;
+    left: 1.5rem;
+    position: absolute;
+    top: 1.5rem;
+    width: 100px;
+    z-index: 3;
 }
 
 /* .navbar-title {
@@ -313,8 +310,8 @@ nav .bar {
 /* Navigation bar ends  */
 
 .intro-video {
-    margin: 5rem auto 2rem;
-    width: 40%;
+    margin: 10vh auto 2rem !important;
+    width: 60%;
 }
 
 .title {
@@ -324,8 +321,9 @@ nav .bar {
     flex-wrap: nowrap;
     justify-content: center;
     position: relative;
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
+    margin: auto;
 }
 
 .title > * {
@@ -340,7 +338,10 @@ nav .bar {
 
 .title-image {
     margin: 3rem auto 1rem;
-    width: 50%;
+    width: 40%;
+
+    position: relative;
+    left: 15px;
 }
 
 .title-description {
@@ -398,8 +399,13 @@ nav .bar {
         font-size: 1rem;
     }
 
+    .intro-video {
+        width: 80%;
+    }
+
     .title-image {
-        width: 90%;
+        margin-top: 2rem;
+        width: 80%;
     }
 
     .title-description {
@@ -420,8 +426,12 @@ nav .bar {
         font-size: 0.9rem;
     }
 
+    .intro-video {
+        width: 90%;
+    }
+
     .title-image {
-        width: 100%;
+        width: 75%;
     }
 
     .title-description {
@@ -430,6 +440,16 @@ nav .bar {
 
     .registration-btn {
         font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .title-image {
+        width: 85%;
+    }
+
+    .registration-btn {
+        font-size: 0.7rem;
     }
 }
 
@@ -464,24 +484,6 @@ GENERAL CLASSES
 
 .row {
     margin: 0;
-}
-
-/* ------------------
-Lottie Files
------------------- */
-/* main {
-    overflow: hidden;
-    position: relative;
-} */
-
-lottie-player {
-    height: 400px;
-    /* left: 0%; */
-    opacity: 0.1;
-    position: absolute;
-    /* top: 0%; */
-    width: 400px;
-    z-index: -2;
 }
 
 /* ------------------
